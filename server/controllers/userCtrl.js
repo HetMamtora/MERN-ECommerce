@@ -67,6 +67,57 @@ const userCtrl = {
         catch(err){
             return res.status(500).json({msg:err.message})
         }
+    },
+
+    //LOGIN
+    login: async(req,res) => {
+        try{
+            const {email,password} = req.body;
+
+            const user = await Users.findOne({email});
+            if(!user){
+                return res.status(400).json({msg:"User does not exist"});
+            }
+
+            const isMatch = await bcrypt.compare(password,user.password);
+            if(!isMatch){
+                return res.status(400).json({msg:"Incorrect Password"});
+            }
+
+            const accesstoken = createAccessToken({id:user._id});
+            const refreshtoken = createRefreshToken({id:user._id});
+
+            // res.cookie('refreshtoken',refreshtoken, {
+            //     httpOnly:true,
+            //     path:'user/refresh_token'
+            // })
+            res.cookie('refreshtoken', refreshtoken, {
+                httpOnly: true,
+                path: '/user/refresh_token' // <-- Absolute path
+            });
+
+            res.json({accesstoken});
+        }
+        catch(err){
+            return res.status(500).json({msg:err.message});
+        }
+    },
+
+    //LOGOUT
+    logout: async(req,res) => {
+        console.log("Logout endpoint reached");
+
+        try{
+            res.clearCookie('refreshtoken', { path: '/user/refresh_token' });
+            return res.json({ msg: "Logged Out" });
+            
+            
+        }
+        catch(err){
+            // return res.status(500).json({msg:err.message});
+            console.error("Error clearing cookie:", err);
+            return res.status(500).json({ msg: "Error clearing cookie" });
+        }
     }
 }
 
