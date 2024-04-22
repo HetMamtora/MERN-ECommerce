@@ -113,10 +113,11 @@ const userCtrl = {
     //GET USER INFO
     getUser: async(req,res) => {
         try{
-            const user = await Users.findById(req.user.id).select('-password')
+            // const user = await Users.findById(req.user.id).select('-password')
 
-            if(!user) return res.status(400).json({msg:"User Not Found"})
-            res.json(user)
+            // if(!user) return res.status(400).json({msg:"User Not Found"})
+            // res.json(user)
+            res.json(req.user);
         }
         catch(err){
             return res.status(500).json({msg:err.message})
