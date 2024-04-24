@@ -115,7 +115,9 @@ const userCtrl = {
         try{
             const user = await Users.findById(req.user.id).select('-password')
 
-            if(!user) return res.status(400).json({msg:"User Not Found"})
+            if(!user){
+                return res.status(400).json({msg:"User Not Found"})
+            }
             res.json(user)
         }
         catch(err){

@@ -10,5 +10,4 @@ router.get('/logout', userCtrl.logout);
 router.post('/refresh_token', userCtrl.refreshtoken);
 router.get('/information',auth,userCtrl.getUser)
 
-
 module.exports = router
