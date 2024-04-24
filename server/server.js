@@ -22,6 +22,7 @@ app.listen(PORT,() => {
 //ROUTES
 app.use('/user',require('./routes/userRouter'))
 app.use('/api',require('./routes/categoryRouter'))
+app.use('/api',require('./routes/productRouter'))
 
 //CONNECT - MongoDB
 const URI = process.env.MONGODB_URL;
