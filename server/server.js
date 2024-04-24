@@ -5,7 +5,10 @@ const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
 require('dotenv').config()
 
-// Body parsing middlewares
+//CONNECTION - PORT
+const PORT = process.env.PORT || 5000;
+
+//BODY PARSING MIDDLEWARES
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -13,11 +16,10 @@ app.use(fileUpload({
     useTempFiles:true
 }))
 
-const PORT = process.env.PORT || 5000;
-
+/* TESTING LOCALHOST
 app.get('/',(req,res) => {
     res.json({msg:"This is Eg"});
-})
+})*/
 
 app.listen(PORT,() => {
     console.log("Server is running on Port:",PORT);
