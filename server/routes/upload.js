@@ -64,6 +64,8 @@ router.post('/destroy',auth,authAdmin,(req,res)=> {
     }
 })
 
+
+//remove temp function obsolate and fixation necessary
 const removeTmp = (path) => {
     fs.unlink(path,err => {
         if(err) throw err;
