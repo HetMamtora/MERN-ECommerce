@@ -1,10 +1,42 @@
 const Products = require('../models/productModel')
 
+//API-Features
+class APIfeatures{
+    constructor(query,queryString){
+        this.query = query;
+        this.queryString = queryString
+    }
+
+    filtering(){
+        const queryObj = {...this.queryString}
+
+        const excludedFields = ['page','sort','limit']
+        excludedFields.forEach(el => delete(queryObj[el]))
+
+        let queryStr = JSON.stringify(queryObj)
+        queryStr = queryStr.replace(/\b(gte|gt|lt|lte\regex)\b/g, match => '₹' + match)
+
+        console.log({queryObj,queryStr})
+
+        return this
+    }
+
+    sorting(){
+
+    }
+
+    pagination(){
+
+    }
+}
+
 const productCtrl = {
     
     getProducts: async(req,res) => {
         try{
-            const products = await Products.find()
+            const features = new APIfeatures(Products.find(),req.query).filtering()
+            const products = await features.query
+            
             res.json(products)
         }
         catch(err){
@@ -36,7 +68,9 @@ const productCtrl = {
                 category
             })
 
-            res.json(newProduct)
+            await newProduct.save();
+
+            res.json({msg:"Productt Added Successfully"})
         }
         catch(err){
             return res.status(500).json({msg:err.message})
@@ -45,7 +79,8 @@ const productCtrl = {
 
     deleteProduct: async(req,res) => {
         try{
-
+            await Products.findByIdAndDelete(req.params.id)
+            res.json({msg:"Product Deleted Successfully"})
         }
         catch(err){
             return res.status(500).json({msg:err.message})
@@ -54,7 +89,16 @@ const productCtrl = {
 
     updateProduct: async(req,res) => {
         try{
+            const {title,price,description,content,images,category} = req.body;
+            if(!images){
+                return res.status(500).json({msg:"No Images Found"})
+            }
 
+            await Products.findOneAndUpdate({_id:req.params.id},{
+                title:title.toLowerCase(),price,description,content,images, category
+            })
+
+            res.json({msg:"Product Updated Successfully"})
         }
         catch(err){
             return res.status(500).json({msg:err.message})
