@@ -17,6 +17,7 @@ const userCtrl = {
             if(password.length < 6){
                 return res.status(400).json({msg:"Password should be atleast 6 character"})
             }
+
             //Password ENCRYPTION
             const passwordHash = await bcrypt.hash(password,10)
 
@@ -55,9 +56,12 @@ const userCtrl = {
             }
 
             jwt.verify(rf_token,process.env.REFRESH_TOKEN_SECRET,(err,user) => {
-                if(err) return res.status(400).json({msg:"Please Login or Register"})
+                if(err){
+                    return res.status(400).json({msg:"Please Login or Register"})   
+                }
+                
                 const accesstoken = createAccessToken({id:user.id})
-            res.json({accesstoken})
+                res.json({accesstoken})
             })
 
         }
@@ -104,9 +108,7 @@ const userCtrl = {
             return res.json({msg:"Logged Out"})
         }
         catch(err){
-            // return res.status(500).json({msg:err.message});
-            console.error("Error clearing cookie:", err);
-            return res.status(500).json({ msg: "Error clearing cookie" });
+            return res.status(500).json({msg:err.message});
         }
     },
 

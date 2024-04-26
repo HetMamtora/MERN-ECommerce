@@ -12,6 +12,14 @@ cloudinary.config({
     api_secret: process.env.CLOUD_API_SECRET
 })
 
+//REMOVE TEMP FILES
+const removeTmp = (path) => {
+    fs.unlink(path,err => {
+        if(err) throw err;
+    })
+}
+
+
 router.post('/upload',auth,authAdmin, (req,res) => {
     try{
         if(!req.files || Object.keys(req.files).length === 0){
@@ -32,12 +40,11 @@ router.post('/upload',auth,authAdmin, (req,res) => {
 
         cloudinary.v2.uploader.upload(file.tempFilePath,{folder:"test"}, async(err,result) => {
             if (err) {
-                fs.unlinkSync(file.tempFilePath); // Remove temporary file
+                removeTmp(file.tempFilePath);
                 return res.status(500).json({ msg: "Error uploading file" });
             }
             
-            //removeTmp(file.tempFilePath)
-            fs.unlinkSync(file.tempFilePath);
+            removeTmp(file.tempFilePath)
             res.json({
                 public_id:result.public_id,
                 url:result.secure_url
@@ -52,25 +59,20 @@ router.post('/upload',auth,authAdmin, (req,res) => {
 router.post('/destroy',auth,authAdmin,(req,res)=> {
     try{
         const {public_id}  = req.body;
-        if(!public_id) return res.status(400).json({msg:"No images Selected"})
+        
+        if(!public_id){
+            return res.status(400).json({msg:"No images Selected"})
+        }
 
         cloudinary.v2.uploader.destroy(public_id,async(err,result) => {
             if(err) throw err
 
-            res.json({msg:"Deleted"})
+            res.json({msg:"Deleted Image"})
         })
-    }catch(err){
+    }
+    catch(err){
         return res.status(500).json({msg:err.message})
     }
 })
-
-
-//remove temp function obsolate and fixation necessary
-const removeTmp = (path) => {
-    fs.unlink(path,err => {
-        if(err) throw err;
-    })
-}
-
 
 module.exports = router

@@ -16,11 +16,6 @@ app.use(fileUpload({
     useTempFiles:true
 }))
 
-/* TESTING LOCALHOST
-app.get('/',(req,res) => {
-    res.json({msg:"This is Eg"});
-})*/
-
 app.listen(PORT,() => {
     console.log("Server is running on Port:",PORT);
 })
