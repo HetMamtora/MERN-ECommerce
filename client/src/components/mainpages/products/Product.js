@@ -3,17 +3,21 @@ import { GlobalState } from '../../../GlobalState'
 import ProductList from '../utils/ProductLists/ProductList'
 
 const Product = () => {
+
   const state = useContext(GlobalState)
-  const [products] = state.productsAPI.products
-  //const [isAdmin] = state.userAPI.isAdmin
+  const [products] = state.productAPI.products
+
+  if (!products || products.length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div className='products'>      
+    <div className='products'>
       {
         products.map(product => {
-          return <ProductList key={product._id} product={product}/>
+          return <ProductList key={product._id} product={product} />
         })
-      }      
+      }
     </div>
   )
 }
