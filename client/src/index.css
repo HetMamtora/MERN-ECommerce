@@ -28,4 +28,5 @@ button{
     cursor: pointer;
 }
 
-@import url("./components/headers/header.css")
+@import url("./components/headers/header.css");
+@import url("./components/mainpages/products/products.css")
