@@ -1,3 +1,4 @@
+/*
 .products{
     width: 100%;
     display: grid;
@@ -6,4 +7,17 @@
     margin: 20px 0;
 }
 
-@import url("../utils/ProductLists/productlist.css")
+@import url("../utils/ProductLists/productlist.css")*/
+
+.products {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+    background-color: #1a1a1a; /* Dark background */
+    padding: 20px; /* Add padding for better spacing */
+}
+
+@import url("../utils/ProductLists/productlist.css");
