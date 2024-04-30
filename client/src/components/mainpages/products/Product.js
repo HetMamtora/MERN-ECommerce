@@ -5,11 +5,11 @@ import ProductList from '../utils/ProductLists/ProductList'
 const Product = () => {
 
   const state = useContext(GlobalState)
-  const [products] = state.productAPI.products
+  const [products] = state.productsAPI.products
 
-  if (!products || products.length === 0) {
+  /*if (!products || products.length === 0) {
     return <div>Loading...</div>;
-  }
+  }*/
 
   return (
     <div className='products'>
