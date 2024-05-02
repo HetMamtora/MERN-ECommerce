@@ -11,6 +11,7 @@ const Header = () => {
     const state = useContext(GlobalState)
     const [isLogged, setIsLogged] = state.userAPI.isLogged
     const [isAdmin, setIsAdmin] = state.userAPI.isAdmin
+    const [cart] = state.userAPI.cart
 
     const logoutUser = async() => {
         await axios.get('/user/logout')
@@ -19,7 +20,7 @@ const Header = () => {
         setIsAdmin(false)
         setIsLogged(false)
     }
-    
+
     const adminRouter = () => {
         return (
             <>
@@ -64,8 +65,8 @@ const Header = () => {
 
         {
             isAdmin ? '' : <div className='cart-icon'>
-                                <span>0</span>
-                                <Link><RiShoppingCartFill size={25}/></Link>
+                                <span>{cart.length}</span>
+                                <Link to='/cart'><RiShoppingCartFill size={25}/></Link>
                             </div>
         }
     </header>

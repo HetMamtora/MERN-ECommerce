@@ -1,9 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import BtnRender from './BtnRender'
 
-const ProductList = ({product, isAdmin}) => {
-
-    //console.log(product)
+const ProductList = ({product,isAdmin}) => {
 
   return (
     <div className='product_card'>
@@ -18,20 +16,7 @@ const ProductList = ({product, isAdmin}) => {
             <p>{product.description}</p>
         </div>
 
-        <div className='row_btn'>
-          {
-            isAdmin ?
-            <>
-              <Link id='btn_buy' to={`#!`}>Delete</Link>
-              <Link id='btn_view' to={`detail/${product._id}`}>Edit</Link>
-            </>
-            :
-            <>
-              <Link id='btn_buy' to={`#!`}>Buy</Link>
-              <Link id='btn_view' to={`detail/${product._id}`}>View</Link>
-            </>
-          }
-        </div>
+        <BtnRender product={product}/>
     </div>
   )
 }

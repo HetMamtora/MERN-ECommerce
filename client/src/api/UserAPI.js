@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const UserAPI = (token) => {
 
@@ -46,6 +46,8 @@ const UserAPI = (token) => {
     return{
         isLogged: [isLogged, setIsLogged],
         isAdmin: [isAdmin, setIsAdmin],
+        cart: [cart, setCart],
+        addCart: addCart
     }
 }
 
