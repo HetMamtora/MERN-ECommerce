@@ -24,8 +24,6 @@ const DetailProduct = () => {
         return null
     }
 
-    console.log(detailProduct)
-
   return (
     <div className='detail'>
         <img src={detailProduct.images.url} alt='' />

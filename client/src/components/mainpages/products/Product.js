@@ -8,10 +8,6 @@ const Product = () => {
   const [products] = state.productsAPI.products
   const [isAdmin] = state.userAPI.isAdmin
 
-  /*if (!products || products.length === 0) {
-    return <div>Loading...</div>;
-  }*/
-
   return (
     <div className='products'>
       {

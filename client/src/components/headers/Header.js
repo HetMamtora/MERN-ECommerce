@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { RiMenuFill } from "react-icons/ri";
-import { RiCloseFill } from "react-icons/ri";
+//import { RiCloseFill } from "react-icons/ri";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { Link } from 'react-router-dom'
 import { GlobalState } from '../../GlobalState'
@@ -52,15 +52,15 @@ const Header = () => {
         </div>
 
         <ul>
-            <li><Link to='/'>{isAdmin?'Products':'Shop'}</Link></li>
+            <li><Link to='/'>{isAdmin?'Products':'Products'}</Link></li>
 
             {isAdmin && adminRouter()}
             {
-                isLogged ? loggedRouter() : <li><Link to='/login'>Login or Register</Link></li>
+                isLogged ? loggedRouter() : <li><Link to='/login'>Login/Register</Link></li>
             }
-            <li>
+            {/*<li>
                 <RiCloseFill size={25} />
-            </li>
+        </li>*/}
         </ul>
 
         {

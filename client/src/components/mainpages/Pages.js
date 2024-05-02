@@ -14,10 +14,9 @@ const Pages = () => {
         <Route path='/register' element={<Register />}/>
         <Route path='/cart' element={<Cart />}/>
         <Route path='/detail/:id' element={<DetailProduct />}/>
+        <Route path='/cart' element={<Cart />}/>
     </Routes>
   )
 }
 
 export default Pages
-
-//<Route path='/' element={}/>
