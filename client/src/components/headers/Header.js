@@ -4,11 +4,39 @@ import { RiCloseFill } from "react-icons/ri";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { Link } from 'react-router-dom'
 import { GlobalState } from '../../GlobalState'
+import axios from 'axios';
 
 const Header = () => {
 
     const state = useContext(GlobalState)
-    console.log(state)
+    const [isLogged, setIsLogged] = state.userAPI.isLogged
+    const [isAdmin, setIsAdmin] = state.userAPI.isAdmin
+
+    const logoutUser = async() => {
+        await axios.get('/user/logout')
+
+        localStorage.clear()
+        setIsAdmin(false)
+        setIsLogged(false)
+    }
+    
+    const adminRouter = () => {
+        return (
+            <>
+            <li><Link to='/create_product'>Create Product</Link></li>
+            <li><Link to='/category'>Categories</Link></li>
+            </>
+        )
+    }
+
+    const loggedRouter = () => {
+        return (
+            <>
+            <li><Link to='/history'>History</Link></li>
+            <li><Link to='/' onClick={logoutUser}>Logout</Link></li>
+            </>
+        )
+    }
 
   return (
     <header>
@@ -18,23 +46,28 @@ const Header = () => {
 
         <div className='logo'>
             <h1>
-                <Link to='/'>Ecommerce Shop</Link>
+                <Link to='/'>{isAdmin?'Admin Portal':'Ecommerce Shop'}</Link>
             </h1>
         </div>
 
         <ul>
-            <li><Link to='/'>Products</Link></li>
-            <li><Link to='/login'>Login or Register</Link></li>
+            <li><Link to='/'>{isAdmin?'Products':'Shop'}</Link></li>
 
+            {isAdmin && adminRouter()}
+            {
+                isLogged ? loggedRouter() : <li><Link to='/login'>Login or Register</Link></li>
+            }
             <li>
                 <RiCloseFill size={25} />
             </li>
         </ul>
 
-        <div className='cart-icon'>
-            <span>0</span>
-            <Link><RiShoppingCartFill size={25}/></Link>
-        </div>
+        {
+            isAdmin ? '' : <div className='cart-icon'>
+                                <span>0</span>
+                                <Link><RiShoppingCartFill size={25}/></Link>
+                            </div>
+        }
     </header>
   )
 }

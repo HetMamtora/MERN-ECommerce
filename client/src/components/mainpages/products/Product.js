@@ -6,6 +6,7 @@ const Product = () => {
 
   const state = useContext(GlobalState)
   const [products] = state.productsAPI.products
+  const [isAdmin] = state.userAPI.isAdmin
 
   /*if (!products || products.length === 0) {
     return <div>Loading...</div>;
@@ -15,7 +16,7 @@ const Product = () => {
     <div className='products'>
       {
         products.map(product => {
-          return <ProductList key={product._id} product={product} />
+          return <ProductList key={product._id} product={product} isAdmin={isAdmin}/>
         })
       }
     </div>

@@ -11,9 +11,14 @@ const UserAPI = (token) => {
         if(token){
             const getUser = async () => {
                 try{
-                    const res = await axios.get('/user/infor',{
+                    const res = await axios.get('/user/information',{
                         headers:{Authorization: token}
                     })
+
+                    setIsLogged(true);
+                    res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
+
+                    console.log(res)
                 }
                 catch(err){
                     alert(err.response.data.msg)
@@ -22,6 +27,21 @@ const UserAPI = (token) => {
             getUser()
         }
     },[token])
+
+    const addCart = async(product) => {
+        if(!isLogged){
+            return alert("Please Log-In")
+        }
+        
+        const check = cart.every(item => item.id !== product._id)
+
+        if(check) {
+            setCart([...cart, {...product, quantity:1}])
+        }
+        else{
+            alert("Itme already added to cart.")
+        }
+    }
 
     return{
         isLogged: [isLogged, setIsLogged],

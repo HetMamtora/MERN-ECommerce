@@ -48,9 +48,6 @@
     text-transform: uppercase;
     letter-spacing: 2px;
 }*/
-*{
-    background: #333;
-}
 .detail {
     width: 100%;
     display: flex;
