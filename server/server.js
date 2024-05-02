@@ -29,10 +29,7 @@ app.use('/api',require('./routes/upload'))
 //CONNECT - MongoDB
 const URI = process.env.MONGODB_URL;
 mongoose.connect(URI, {
-    //useCreateIndex:true,
-    //useFindAndModify:false,
-    //useNewUrlParser:true,
-    //useUnifiedTopology:true
+   
 })
 .then(() => {
     console.log("MongoDB Connected");

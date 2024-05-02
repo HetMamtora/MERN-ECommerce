@@ -15,16 +15,19 @@ const userCtrl = {
             }
 
             if(password.length < 6){
-                return res.status(400).json({msg:"Password should be atleast 6 character"})
+                return res.status(400).json({msg:"Password should be atleast 6 characters"})
             }
 
             //Password ENCRYPTION
             const passwordHash = await bcrypt.hash(password,10)
 
-            //Save on MongoDB Cloud (Atlas)
             const newUser = new Users({
-                name,email,password:passwordHash
+                name,
+                email,
+                password:passwordHash
             })
+
+            //SAVE on Atlas
             await newUser.save();
 
             //JWT Token to AUTHENTICATE
@@ -48,9 +51,7 @@ const userCtrl = {
     refreshtoken: async(req,res) => {
         try{
             const rf_token = req.cookies.refreshtoken;
-            console.log(req);
-            console.log(res);
-            console.log(rf_token);
+            
             if(!rf_token){
                 return res.status(400).json({msg:"Please Login or Registers"})
             }
@@ -102,7 +103,6 @@ const userCtrl = {
 
     //LOGOUT
     logout: async(req,res) => {
-        console.log("Logout endpoint reached");
         try{
             res.clearCookie('refreshtoken',{path:'/user/refresh_token'})
             return res.json({msg:"Logged Out"})

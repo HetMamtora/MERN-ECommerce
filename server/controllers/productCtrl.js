@@ -25,7 +25,6 @@ class APIfeatures{
         if(this.queryString.sort){
             const sortBy = this.queryString.sort.split(',').join('')
             this.query = this.query.sort(sortBy)
-            console.log(sortBy)
         }
         else{
             this.query = this.query.sort('-createdAt')
@@ -52,10 +51,11 @@ const productCtrl = {
             const features = new APIfeatures(Products.find(),req.query).filtering().sorting().pagination()
             const products = await features.query
             
-            //res.json(products);
-            res.json({status:'success',
-            result: products.length,
-        products:products})
+            res.json({
+                status:'success',
+                result: products.length,
+                products:products
+            })
         }
         catch(err){
             return res.status(500).json({msg:err.message})
@@ -113,7 +113,12 @@ const productCtrl = {
             }
 
             await Products.findOneAndUpdate({_id:req.params.id},{
-                title:title.toLowerCase(),price,description,content,images, category
+                title:title.toLowerCase(),
+                price,
+                description,
+                content,
+                images,
+                category
             })
 
             res.json({msg:"Product Updated Successfully"})
