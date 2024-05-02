@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-const UserAPI = () => {
+const UserAPI = (token) => {
 
     const [isLogged, setIsLogged] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
@@ -19,12 +19,14 @@ const UserAPI = () => {
                     alert(err.response.data.msg)
                 }
             }
+            getUser()
         }
-    })
+    },[token])
 
-    return (
-        <div>UserAPI</div>
-    )
+    return{
+        isLogged: [isLogged, setIsLogged],
+        isAdmin: [isAdmin, setIsAdmin],
+    }
 }
 
 export default UserAPI
