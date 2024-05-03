@@ -15,12 +15,12 @@ const BtnRender = (product) => {
         isAdmin ? 
         <>
             <Link id='btn_buy' to={`#!`} >Delete</Link>
-            <Link id='btn_view' to={`detail/${product._id}`}>Edit</Link>
+            <Link id='btn_view' to={`/detail/${product._id}`}>Edit</Link>
         </>
         :
         <>
             <Link id='btn_buy' to={`#!`} onClick={()=> addCart(product)}>Buy</Link>
-            <Link id='btn_view' to={`detail/${product._id}`}>View</Link>
+            <Link id='btn_view' to={`/detail/${product._id}`}>View</Link>
         </>
     }
     </div>
