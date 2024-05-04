@@ -39,41 +39,52 @@ const Cart = () => {
 
 export default Cart*/
 
-import React, { useContext } from 'react'
-import { GlobalState } from '../../../GlobalState'
-import { Link } from 'react-router-dom'
+/*import React, { useContext } from 'react';
+import { GlobalState } from '../../../GlobalState';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const state = useContext(GlobalState)
-    const [cart] = state.userAPI.cart
+    const state = useContext(GlobalState);
+    const [cart] = state.userAPI.cart;
 
-    if(cart.length === 0){
-        return <h2 style={{textAlign:"center",fontSize:"3rem"}}>Cart Empty</h2>
+    if (cart.length === 0) {
+        return <h2 style={{ textAlign: "center", fontSize: "3rem" }}>Cart Empty</h2>;
     }
 
     return (
         <div>
-            {cart.map(item => (
-                <div key={item.product._id} className='detail'>
-                    <img src={item.product.images.url} alt=''/>
-      
-                    <div className='box-detail'>
-                        <div className='row'>
-                            <h2>{item.product.title}</h2>
-                            <h6>{item.product.product_id}</h6>
-                        </div>
-        
-                        <span>${item.product.price}</span> 
-                        <p>{item.product.description}</p> 
-                        <p>{item.product.content}</p>
-                        <p>Sold:{item.product.sold}</p>
-        
-                        <Link to='/cart' className='cart'>Buy Now</Link>
-                    </div>
-                </div>
-            ))}
-        </div>
-    )
-}
+            {cart.map((product) => {
+                console.log('Product:', product);
+                return (
+                    <div className='detail' key={product._id}>
+                        {product.product && product.product.images && product.product.images.url && (
+                            <img src={product.product.images.url} alt='' />
+                        )}
 
-export default Cart
+                        <div className='box-detail'>
+                            <div className='row'>
+                                {product.product && product.product.title && (
+                                    <h2>{product.product.title}</h2>
+                                )}
+                                {product.product_id && <h6>{product.product_id}</h6>}
+                            </div>
+
+                            {product.product && product.product.price && (
+                                <span>${product.product.price}</span>
+                            )}
+                            {product.description && <p>{product.description}</p>}
+                            {product.content && <p>{product.content}</p>}
+                            {product.sold && <p>Sold: {product.sold}</p>}
+
+                            <Link to='/cart' className='cart'>Buy Now</Link>
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    );
+};
+
+export default Cart;*/
+
+

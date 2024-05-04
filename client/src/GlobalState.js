@@ -1,4 +1,4 @@
-/*import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import ProductAPI from "./api/ProductAPI";
 import axios from "axios";
 import UserAPI from "./api/UserAPI";
@@ -32,9 +32,9 @@ export const DataProvider = ({children}) => {
             {children}
         </GlobalState.Provider>
     )
-}*/
+}
 
-import { createContext, useEffect } from "react";
+/*import { createContext, useEffect } from "react";
 import ProductAPI from "./api/ProductAPI";
 import { useState } from "react";
 import axios from "axios";
@@ -68,4 +68,4 @@ export const DataProvider = ({children}) => {
             {children}
         </GlobalState.Provider>
     )
-}
+}*/
