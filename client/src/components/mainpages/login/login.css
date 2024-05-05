@@ -36,20 +36,20 @@ button {
     border: none;
     border-radius: 5px;
     background-color: #007bff;
-    color: #fff; /* White text color */
+    color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
 Link {
-    color: #007bff; /* Blue link color */
+    color: #007bff;
     text-decoration: none;
 }
 
 Link:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
 }
