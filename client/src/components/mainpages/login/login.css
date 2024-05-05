@@ -4,15 +4,15 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #333; /* Dark background color */
+    background-color: #333;
 }
 
 form {
     width: 300px;
     padding: 20px;
     border-radius: 10px;
-    background-color: #444; /* Darker background for form */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
+    background-color: #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 input {
@@ -21,8 +21,8 @@ input {
     margin: 10px 0;
     border: none;
     border-radius: 5px;
-    background-color: #555; /* Darker background for inputs */
-    color: #eee; /* Light text color */
+    background-color: #555;
+    color: #eee;
 }
 
 .row {
@@ -35,7 +35,7 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff; /* Blue button color */
+    background-color: #007bff;
     color: #fff; /* White text color */
     cursor: pointer;
     transition: background-color 0.3s ease;
