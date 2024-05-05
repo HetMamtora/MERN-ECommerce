@@ -12,20 +12,6 @@ const DetailProduct = (product) => {
 
     const addCart = state.userAPI.addCart
 
-    /*useEffect(() => {
-        if(params){
-            products.forEach(product => {
-                if(product._id === params.id){
-                    setDetailProduct(product)
-                }
-            });
-        }
-    },[params,products])
-
-    if(detailProduct.length ===0){
-        return null
-    }*/
-
     useEffect(() => {
         if (products && products.length > 0 && params.id) {
             const product = products.find(product => product._id === params.id)
@@ -35,7 +21,7 @@ const DetailProduct = (product) => {
         }
     }, [params.id, products])
 
-    // If products is null, return early
+    //If NULL Product, Return first
     if (!products) {
         return <div>Loading...</div>
     }
@@ -65,5 +51,3 @@ const DetailProduct = (product) => {
 }
 
 export default DetailProduct
-
-//<h6>{detailProduct.product_id}</h6>

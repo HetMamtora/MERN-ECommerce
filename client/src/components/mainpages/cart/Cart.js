@@ -20,13 +20,11 @@ const Cart = () => {
                     <div className='box-detail'>
                         <div className='row'>
                             <h2>{product.title}</h2>
-                            <h6>{product.product_id}</h6>
                         </div>
         
                         <span>₹{product.price}</span> 
                         <p>{product.description}</p> 
                         <p>{product.content}</p>
-                        <p>Sold:{product.sold}</p>
         
                         <Link to='/cart' className='cart'>Buy Now</Link>
                     </div>

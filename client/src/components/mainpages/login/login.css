@@ -1,0 +1,55 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #333; /* Dark background color */
+}
+
+form {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #444; /* Darker background for form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #555; /* Darker background for inputs */
+    color: #eee; /* Light text color */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Blue button color */
+    color: #fff; /* White text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+Link {
+    color: #007bff; /* Blue link color */
+    text-decoration: none;
+}
+
+Link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
