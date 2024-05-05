@@ -73,8 +73,9 @@
 }
 
 .row_btn a:hover {
-    opacity: 0.8;
     transition: 0.3s ease-in;
+    color: black;
+    background: white;
 }
 
 #btn_buy {
@@ -82,9 +83,19 @@
     border: none;
     color: #343333;
 }
+#btn_buy:hover{
+    transition: 0.2s ease-in;
+    color: black;
+    background: white;
+}
 
 #btn_view {
     background: #59b4e1;
     border: none;
     color: #343333;
+}
+#btn_view:hover{
+    transition: 0.2s ease-in;
+    color: white;
+    background: black;
 }
