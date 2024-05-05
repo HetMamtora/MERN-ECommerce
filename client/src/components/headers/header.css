@@ -11,12 +11,11 @@ header{
 
 header.logo{
     flex:1;
-
 }
 
 header a{
     text-transform: uppercase;
-    color: black;
+    color: orange;
 }
 header ul li{
     display: inline-block;
@@ -25,6 +24,7 @@ header ul li{
 }
 header ul li:hover{
     opacity: 1;
+    transition: 0.2s ease-in;
 }
 .menu{
     display: none;

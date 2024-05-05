@@ -58,13 +58,10 @@ const Header = () => {
             {
                 isLogged ? loggedRouter() : <li><Link to='/login'>Login/Register</Link></li>
             }
-            {/*<li>
-                <RiCloseFill size={25} />
-        </li>*/}
         </ul>
 
         {
-            isAdmin ? '' : <div className='cart-icon'>
+            isAdmin ? '' :  <div className='cart-icon'>
                                 <span>{cart.length}</span>
                                 <Link to='/cart'><RiShoppingCartFill size={25}/></Link>
                             </div>

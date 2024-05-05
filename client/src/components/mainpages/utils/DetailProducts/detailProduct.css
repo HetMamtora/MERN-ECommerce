@@ -53,9 +53,11 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin-top: 1rem;
     font-size: 1.5rem; /* Adjust font size */
     color: #fff; /* White text color */
     background: #333;
+    border-radius: 5px;
 }
 
 .detail img {
@@ -64,7 +66,7 @@
     margin: 20px;
     height: 450px;
     object-fit: cover;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 10px; 
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); /* Soft shadow */
 }
 
