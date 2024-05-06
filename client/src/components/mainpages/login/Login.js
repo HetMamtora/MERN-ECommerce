@@ -34,7 +34,7 @@ const Login = () => {
 
             <div className='row'>
                 <button type='submit'>Login</button>
-                <Link to='/register'>Register</Link>
+                <button><Link to='/register' className='link'>Register</Link></button>
 
             </div>
         </form>

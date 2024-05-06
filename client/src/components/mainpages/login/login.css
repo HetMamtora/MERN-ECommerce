@@ -3,8 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #333;
+    margin-top: 3rem;
 }
 
 form {
@@ -12,7 +11,7 @@ form {
     padding: 20px;
     border-radius: 10px;
     background-color: #444;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
 input {
@@ -29,27 +28,26 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: none;
+    font-weight: 500;
+    margin-top: 1rem;
 }
 
 button {
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
+    background: orange;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border: none;
+    color: white;
+}
+
+button .link{
+    background: none;
+    color: white;
 }
 
 button:hover {
-    background-color: #0056b3;
-}
-
-Link {
-    color: #007bff;
-    text-decoration: none;
-}
-
-Link:hover {
-    text-decoration: underline;
+    background-color: white;
+    color: black;
 }
