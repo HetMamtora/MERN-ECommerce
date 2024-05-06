@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { RiMenuFill } from "react-icons/ri";
-//import { RiCloseFill } from "react-icons/ri";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { Link } from 'react-router-dom'
 import { GlobalState } from '../../GlobalState'
@@ -25,7 +24,6 @@ const Header = () => {
         return (
             <>
             <li><Link to='/create_product'>Create Product</Link></li>
-            <li><Link to='/category'>Categories</Link></li>
             </>
         )
     }
@@ -33,7 +31,6 @@ const Header = () => {
     const loggedRouter = () => {
         return (
             <>
-            <li><Link to='/history'>History</Link></li>
             <li><Link to='/' onClick={logoutUser}>Logout</Link></li>
             </>
         )

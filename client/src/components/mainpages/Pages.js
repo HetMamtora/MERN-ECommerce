@@ -5,6 +5,7 @@ import Register from './login/Register'
 import Cart from './cart/Cart'
 import { Route, Routes } from 'react-router-dom'
 import DetailProduct from './utils/DetailProducts/DetailProduct'
+import CreateProduct from './utils/CreateProduct/CreateProduct'; 
 
 const Pages = () => {
   return (
@@ -15,6 +16,7 @@ const Pages = () => {
         <Route path='/cart' element={<Cart />}/>
         <Route path='/detail/:id' element={<DetailProduct />}/>
         <Route path='/cart' element={<Cart />}/>
+        <Route path='/create_product' element={<CreateProduct />} />
     </Routes>
   )
 }
