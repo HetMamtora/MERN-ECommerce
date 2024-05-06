@@ -40,9 +40,9 @@
 .box-detail h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: bold; /* Make the heading bold */
-    font-size: 2rem; /* Increase font size */
-    color: #ff4d4d; /* Red color for heading */
+    font-weight: bold;
+    font-size: 2rem;
+    color: #ff4d4d;
     background: none;
 }
 
@@ -58,7 +58,7 @@
     line-height: 1.5;
     margin: 10px 0;
     opacity: 0.8;
-    color: #ccc; /* Lighter text color */
+    color: #ccc;
     background: none;
     font-size: 1.2rem;
     font-weight: 500;

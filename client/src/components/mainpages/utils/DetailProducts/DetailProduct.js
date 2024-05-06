@@ -21,12 +21,10 @@ const DetailProduct = (product) => {
         }
     }, [params.id, products])
 
-    //If NULL Product, Return first
     if (!products) {
         return <div>Loading...</div>
     }
 
-    // If detailProduct is null or undefined, return early
     if (!detailProduct) {
         return null
     }
