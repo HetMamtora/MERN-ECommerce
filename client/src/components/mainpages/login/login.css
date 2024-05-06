@@ -1,4 +1,4 @@
-.login-page {
+.login-page, .register-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,13 +23,15 @@ input {
     background-color: #555;
     color: #eee;
 }
+input::placeholder {
+    color: #ccc;
+}
 
 .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: none;
-    font-weight: 500;
     margin-top: 1rem;
 }
 
@@ -42,12 +44,14 @@ button {
     color: white;
 }
 
-button .link{
+.link{
     background: none;
     color: white;
+    margin-right: 9px;
 }
 
 button:hover {
     background-color: white;
     color: black;
+    transition: 0.3s ease;
 }

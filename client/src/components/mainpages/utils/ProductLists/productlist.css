@@ -73,7 +73,7 @@
 }
 
 .row_btn a:hover {
-    transition: 0.3s ease-in;
+    transition: 0.3s ease;
     color: black;
     background: white;
 }
@@ -84,7 +84,7 @@
     color: #343333;
 }
 #btn_buy:hover{
-    transition: 0.2s ease-in;
+    transition: 0.3s ease;
     color: black;
     background: white;
 }
@@ -95,7 +95,7 @@
     color: #343333;
 }
 #btn_view:hover{
-    transition: 0.2s ease-in;
+    transition: 0.3s ease;
     color: white;
     background: black;
 }
